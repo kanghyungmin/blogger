@@ -25,11 +25,12 @@ export function ArticleLayout({
   previousPathname,
 }) {
   let router = useRouter()
+  console.log(router)
 
   if (isRssFeed) {
     return children
   }
-
+  console.log('ArticleLayout')
   return (
     <>
       <Head>

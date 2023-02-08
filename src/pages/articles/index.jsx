@@ -3,7 +3,10 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { getAllArticles } from '@/lib/getAllArticles'
+import { useState, useEffect } from 'react'
 import { formatDate } from '@/lib/formatDate'
+import { paginate } from '@/lib/paginate'
+import { Pagination } from '@/components/Paginate'
 
 function Article({ article }) {
   return (
@@ -36,6 +39,14 @@ function Article({ article }) {
 
 export default function ArticlesIndex({ articles }) {
   // console.log({ articles })
+  const [currentPage, setCurrentPage] = useState(1)
+  const pageSize = 3
+
+  const showArticles = paginate(articles, currentPage, pageSize)
+
+  const onPageChange = (page) => {
+    setCurrentPage(page)
+  }
 
   return (
     <>
@@ -52,12 +63,18 @@ export default function ArticlesIndex({ articles }) {
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">
-            {articles.map((article) => (
+            {showArticles.map((article) => (
               <Article key={article.slug} article={article} />
             ))}
           </div>
         </div>
       </SimpleLayout>
+      <Pagination
+        items={articles.length} // 100
+        currentPage={currentPage} // 1
+        pageSize={pageSize} // 10
+        onPageChange={onPageChange}
+      />
     </>
   )
 }

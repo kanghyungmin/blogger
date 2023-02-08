@@ -25,7 +25,8 @@ export default function App({ Component, pageProps, router }) {
   console.log('previousPathname', previousPathname)
   console.log('router', router)
   console.log('Component', Component)
-  console.log('pageProps', pageProps.articles)
+  if (pageProps.articles) console.log('pageProps', pageProps.articles.length)
+  console.log('App')
 
   return (
     <>
