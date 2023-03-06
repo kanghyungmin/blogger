@@ -1,30 +1,87 @@
-import styles from '@/styles/Home.module.css'
-
 export function Pagination({ items, pageSize, currentPage, onPageChange }) {
   const pagesCount = Math.ceil(items / pageSize) // 100/10
-  console.log('items', items)
-  console.log('pageSize', pageSize)
-  console.log('currentPage', currentPage)
 
   if (pagesCount === 1) return null
   const pages = Array.from({ length: pagesCount }, (_, i) => i + 1)
 
   return (
-    <div>
-      <ul className={styles.pagination}>
-        {pages.map((page) => (
-          <li
-            key={page}
-            className={
-              page === currentPage ? styles.pageItemActive : styles.pageItem
-            }
-          >
-            <a className={styles.pageLink} onClick={() => onPageChange(page)}>
-              {page}
+    <div className="mt-10 flex justify-center text-red-600">
+      <nav aria-label="Page navigation example">
+        <ul class="inline-flex items-center -space-x-px">
+          {/* <li>
+            <a
+              href="#"
+              class="ml-0 block rounded-l-lg border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              onClick={() => onPageChange(currentPage - 1)}
+            >
+              <span class="sr-only">Previous</span>
+              <svg
+                aria-hidden="true"
+                class="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
             </a>
-          </li>
-        ))}
-      </ul>
+          </li> */}
+          {pages.map((page) => {
+            if (page === currentPage) {
+              return (
+                <li
+                  key={page}
+                  className="z-10 border border-blue-300 bg-blue-50 px-3 py-2 leading-tight text-blue-600 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                >
+                  <a
+                    href="#"
+                    aria-current="page"
+                    onClick={() => onPageChange(page)}
+                  >
+                    {page}
+                  </a>
+                </li>
+              )
+            } else {
+              return (
+                <li
+                  key={page}
+                  className="border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  <a href="#" onClick={() => onPageChange(page)}>
+                    {page}
+                  </a>
+                </li>
+              )
+            }
+          })}
+          {/* <li>
+            <a
+              href="#"
+              class="block rounded-r-lg border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <span class="sr-only">Next</span>
+              <svg
+                aria-hidden="true"
+                class="h-5 w-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </li> */}
+        </ul>
+      </nav>
     </div>
   )
 }
