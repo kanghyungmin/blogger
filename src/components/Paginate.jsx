@@ -7,7 +7,7 @@ export function Pagination({ items, pageSize, currentPage, onPageChange }) {
   return (
     <div className="mt-10 flex justify-center text-red-600">
       <nav aria-label="Page navigation example">
-        <ul class="inline-flex items-center -space-x-px">
+        <ul className="inline-flex items-center -space-x-px">
           {/* <li>
             <a
               href="#"
