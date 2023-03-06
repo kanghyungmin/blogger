@@ -412,6 +412,26 @@ export function Header() {
                 <MobileNavigation className="pointer-events-auto md:hidden" />
                 <DesktopNavigation className="pointer-events-auto hidden md:block" />
               </div>
+              <div className="flex flex-1 justify-end md:justify-center">
+                <div className="flex rounded border-2">
+                  <input
+                    type="text"
+                    class="w-60 px-4 py-2"
+                    placeholder="Search..."
+                  />
+                  <button class="flex items-center justify-center border-l px-4">
+                    <svg
+                      class="h-6 w-6 text-gray-600"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
               <div className="flex justify-end md:flex-1">
                 <div className="pointer-events-auto">
                   <ModeToggle />

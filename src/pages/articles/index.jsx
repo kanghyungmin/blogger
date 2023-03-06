@@ -82,8 +82,6 @@ export default function ArticlesIndex({ articles }) {
 }
 
 export async function getStaticProps() {
-  // const res = await getAllArticles()
-  // console.log('res', res)
   return {
     props: {
       articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
