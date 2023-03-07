@@ -36,7 +36,6 @@ const modeScript = `
 `
 
 export default function Document() {
-  console.log('document')
   return (
     <Html className="h-full antialiased" lang="en">
       <Head>

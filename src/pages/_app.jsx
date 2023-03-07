@@ -8,25 +8,16 @@ import 'focus-visible'
 
 function usePrevious(value) {
   let ref = useRef()
-  console.log('ref', ref)
 
   useEffect(() => {
     ref.current = value
   }, [value])
-
-  console.log('use-effect: ref', ref)
 
   return ref.current
 }
 
 export default function App({ Component, pageProps, router }) {
   let previousPathname = usePrevious(router.pathname)
-
-  console.log('previousPathname', previousPathname)
-  console.log('router', router)
-  console.log('Component', Component)
-  if (pageProps.articles) console.log('pageProps', pageProps.articles.length)
-  console.log('App')
 
   return (
     <>

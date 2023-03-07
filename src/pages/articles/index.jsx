@@ -38,7 +38,6 @@ function Article({ article }) {
 }
 
 export default function ArticlesIndex({ articles }) {
-  // console.log({ articles })
   const [currentPage, setCurrentPage] = useState(1)
   const pageSize = 3
 
