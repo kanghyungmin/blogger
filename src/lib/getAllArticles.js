@@ -5,7 +5,13 @@ async function importArticle(articleFilename) {
   let { meta, default: component } = await import(
     `../pages/articles/${articleFilename}`
   )
-  console.log('meta', meta)
+  // if (meta.indexing) {
+  //   meta.indexing.split(' ').map((elemnet) => {
+  //     indexing.add(elemnet)
+  //   })
+  // }
+  // console.log('indexing', indexing)
+
   return {
     slug: articleFilename.replace(/(\/index)?\.mdx$/, ''),
     ...meta,
@@ -17,7 +23,6 @@ export async function getAllArticles() {
   let articleFilenames = await glob(['*.mdx', '*/index.mdx'], {
     cwd: path.join(process.cwd(), 'src/pages/articles'),
   })
-  console.log('articleFilenames', articleFilenames)
   let articles = await Promise.all(articleFilenames.map(importArticle))
 
   return articles.sort((a, z) => new Date(z.date) - new Date(a.date))

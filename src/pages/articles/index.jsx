@@ -84,6 +84,9 @@ export async function getStaticProps() {
   return {
     props: {
       articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      totalArticles: (await getAllArticles()).map(
+        ({ component, ...meta }) => meta
+      ),
     },
   }
 }

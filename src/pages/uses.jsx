@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { getAllArticles } from '@/lib/getAllArticles'
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -116,4 +117,15 @@ export default function Uses() {
       </SimpleLayout>
     </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      totalArticles: (await getAllArticles()).map(
+        ({ component, ...meta }) => meta
+      ),
+    },
+  }
 }

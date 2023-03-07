@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { getAllArticles } from '@/lib/getAllArticles'
 
 import { Container } from '@/components/Container'
 import {
@@ -120,4 +121,15 @@ export default function About() {
       </Container>
     </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      totalArticles: (await getAllArticles()).map(
+        ({ component, ...meta }) => meta
+      ),
+    },
+  }
 }

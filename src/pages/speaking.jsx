@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import { getAllArticles } from '@/lib/getAllArticles'
 
 function SpeakingSection({ children, ...props }) {
   return (
@@ -83,4 +84,15 @@ export default function Speaking() {
       </SimpleLayout>
     </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      totalArticles: (await getAllArticles()).map(
+        ({ component, ...meta }) => meta
+      ),
+    },
+  }
 }

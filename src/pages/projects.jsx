@@ -8,6 +8,7 @@ import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
+import { getAllArticles } from '@/lib/getAllArticles'
 
 const projects = [
   {
@@ -100,4 +101,15 @@ export default function Projects() {
       </SimpleLayout>
     </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
+      totalArticles: (await getAllArticles()).map(
+        ({ component, ...meta }) => meta
+      ),
+    },
+  }
 }

@@ -247,7 +247,9 @@ function Avatar({ large = false, className, ...props }) {
   )
 }
 
-export function Header() {
+export function Header(...props) {
+  let { totalArticles } = { ...props[0] }
+
   let isHomePage = useRouter().pathname === '/'
 
   let headerRef = useRef()
@@ -428,7 +430,16 @@ export function Header() {
                       // className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500"
                       className="z-100 pointer-events-auto flex items-center justify-center border-l px-4"
                       onClick={() => {
-                        console.log('111')
+                        const search = 'nestjs'
+                        const setParam = new Set()
+                        totalArticles.map((article) => {
+                          article.indexing?.split(' ').map((element) => {
+                            if (element === search) {
+                              setParam.add(article)
+                            }
+                          })
+                        })
+                        console.log(...setParam)
                       }}
                     >
                       <svg
