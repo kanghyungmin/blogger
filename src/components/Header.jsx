@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { Router, useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import avatarImage from '@/images/avatar.jpg'
 import { Fragment, useEffect, useRef } from 'react'
+import ArticlesIndex from '@/pages/articles'
 
 function CloseIcon(props) {
   return (
@@ -249,7 +250,7 @@ function Avatar({ large = false, className, ...props }) {
 
 export function Header(...props) {
   let { totalArticles } = { ...props[0] }
-
+  const router = useRouter()
   let isHomePage = useRouter().pathname === '/'
 
   let headerRef = useRef()
@@ -429,17 +430,29 @@ export function Header(...props) {
                       type="button"
                       // className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500"
                       className="z-100 pointer-events-auto flex items-center justify-center border-l px-4"
+                      // onClick={() => router.push('/about')}
                       onClick={() => {
-                        const search = 'nestjs'
-                        const setParam = new Set()
+                        const search = 'mongoDB'
+                        const searchedDocs = new Set()
                         totalArticles.map((article) => {
+                          // console.log('1')
                           article.indexing?.split(' ').map((element) => {
                             if (element === search) {
-                              setParam.add(article)
+                              searchedDocs.add(article)
                             }
                           })
                         })
-                        console.log(...setParam)
+
+                        console.log(searchedDocs)
+                        router.push('/search')
+                        //   //1이동(O). 2. articles 보여주기(O), 3. setParam 적용(O) 4. search string 적용
+                        //   // return <NavItem href="/uses">Uses</NavItem>
+                        //   // <NavItem href="/articles">Articles</NavItem>
+                        //   // <Link href="/search" />
+                        //   // <a href="/search" />
+                        //   // <console.log(...setParam)>
+                        //   // <SearchIndex articles={setParam} />
+                        // }
                       }}
                     >
                       <svg
