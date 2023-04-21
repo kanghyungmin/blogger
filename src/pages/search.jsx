@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { formatDate } from '@/lib/formatDate'
 import { paginate } from '@/lib/paginate'
 import { Pagination } from '@/components/Paginate'
+import { Router, useRouter } from 'next/router'
 
 function Article({ article }) {
   return (
@@ -40,7 +41,17 @@ function Article({ article }) {
 export default function SearchIndex({ articles }) {
   const [currentPage, setCurrentPage] = useState(1)
   const pageSize = 3
-
+  const router = useRouter()
+  if (router.query.search) {
+    // console.log(`query = ${router.query.search}`)
+    articles = articles.filter((article) => {
+      const res = article.indexing?.split(' ').map((element) => {
+        if (element === router.query.search) return article
+      })
+      return res
+    })
+    // console.log(`article.size : ${articles.length}`)
+  }
   const showArticles = paginate(articles, currentPage, pageSize)
 
   const onPageChange = (page) => {

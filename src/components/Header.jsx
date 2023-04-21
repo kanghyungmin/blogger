@@ -433,26 +433,12 @@ export function Header(...props) {
                       // onClick={() => router.push('/about')}
                       onClick={() => {
                         const search = 'mongoDB'
-                        const searchedDocs = new Set()
-                        totalArticles.map((article) => {
-                          // console.log('1')
-                          article.indexing?.split(' ').map((element) => {
-                            if (element === search) {
-                              searchedDocs.add(article)
-                            }
-                          })
-                        })
 
-                        console.log(searchedDocs)
-                        router.push('/search')
-                        //   //1이동(O). 2. articles 보여주기(O), 3. setParam 적용(O) 4. search string 적용
-                        //   // return <NavItem href="/uses">Uses</NavItem>
-                        //   // <NavItem href="/articles">Articles</NavItem>
-                        //   // <Link href="/search" />
-                        //   // <a href="/search" />
-                        //   // <console.log(...setParam)>
-                        //   // <SearchIndex articles={setParam} />
-                        // }
+                        router.push({
+                          pathname: '/search',
+                          query: { search },
+                        })
+                        // 1이동(O). 2. articles 보여주기(O), 3. search string 적용
                       }}
                     >
                       <svg
