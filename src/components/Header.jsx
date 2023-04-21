@@ -256,6 +256,7 @@ export function Header(...props) {
   let headerRef = useRef()
   let avatarRef = useRef()
   let isInitial = useRef(true)
+  let tmp = useRef(null)
 
   useEffect(() => {
     let downDelay = avatarRef.current?.offsetTop ?? 0
@@ -424,6 +425,7 @@ export function Header(...props) {
                       className="z-110 w-30 pointer-events-auto px-2 py-1"
                       placeholder="Search"
                       required=""
+                      ref={tmp}
                     />
 
                     <button
@@ -432,8 +434,9 @@ export function Header(...props) {
                       className="z-100 pointer-events-auto flex items-center justify-center border-l px-4"
                       // onClick={() => router.push('/about')}
                       onClick={() => {
-                        const search = 'mongoDB'
-
+                        const search = tmp.current?.value
+                        // const test = console.log(`testValue = ${test}`)
+                        console.log(`search=${search}`)
                         router.push({
                           pathname: '/search',
                           query: { search },

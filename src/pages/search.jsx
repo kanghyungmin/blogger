@@ -50,10 +50,10 @@ export default function SearchIndex({ articles }) {
       })
       return res
     })
-    // console.log(`article.size : ${articles.length}`)
+    console.log(`article.size : ${articles.length}`)
   }
   const showArticles = paginate(articles, currentPage, pageSize)
-
+  console.log(`showArticles.size : ${showArticles.length}`)
   const onPageChange = (page) => {
     setCurrentPage(page)
   }
