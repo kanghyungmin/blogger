@@ -139,7 +139,7 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Hybnomic',
+      company: 'BUFFY',
       title: 'SW Team Leader',
       logo: logoPlanetaria,
       start: '2023.06',
