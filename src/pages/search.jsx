@@ -71,7 +71,7 @@ export default function SearchIndex({ articles }) {
   return (
     <>
       <Head>
-        <title>Articles - Spencer Sharp</title>
+        <title>Articles - Hyungmin Kang</title>
 
         <meta
           name="description"
@@ -79,8 +79,8 @@ export default function SearchIndex({ articles }) {
         />
       </Head>
       <SimpleLayout
-        title="Writing on software design, company building, and the aerospace industry."
-        intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+        title="Writing on software design, algorithms, and the big things to note"
+        intro="I think the following lists are challenging and very helpful to other people. So, I want to share my idea and communicate with it. Fell free to contact me."
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           {/* <div className="flex max-w-3xl flex-col space-y-16"> */}
