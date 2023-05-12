@@ -139,35 +139,35 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
+      company: 'Hybnomic',
+      title: 'SW Team Leader',
       logo: logoPlanetaria,
-      start: '2019',
+      start: '2023.06',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
+      company: 'Chain partners',
+      title: 'Lead Software Engineer',
       logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      start: '2021.06',
+      end: '2023.05',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
+      company: 'Avikus',
+      title: 'Lead Software Engineer',
       logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      start: '2021.01',
+      end: '2021.05',
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
+      company: 'Hyundai Heavy Industris',
+      title: 'SW Researcher',
       logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      start: '2012.07',
+      end: '2020.12',
     },
   ]
 
@@ -255,19 +255,19 @@ export default function Home({ articles }) {
         </title>
         <meta
           name="description"
-          content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          // content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          content=""
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, founder, and amateur astronaut.
+            Software engineer, dreamer
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
+            I'm hyungmin. I live in Seoul as a software engineer. Since I was
+            20, I have liked coding a program. So, I have a lot of experience
+            and hope that I would be this field always as long as possible.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

@@ -46,14 +46,24 @@ export default function SearchIndex({ articles }) {
     // console.log(`query = ${router.query.search}`)
     articles = articles.filter((article) => {
       const res = article.indexing?.split(' ').map((element) => {
-        if (element === router.query.search) return article
+        console.log(element)
+        if (element == router.query.search) return true
+        else return false
       })
-      return res
+      console.log(res)
+
+      if (res && res.includes(true)) {
+        // console.log('11')
+        return true
+      } else {
+        // console.log('22')
+        return false
+      }
     })
-    console.log(`article.size : ${articles.length}`)
+    // console.log(`article.size : ${articles.length}`)
   }
   const showArticles = paginate(articles, currentPage, pageSize)
-  console.log(`showArticles.size : ${showArticles.length}`)
+  // console.log(`showArticles.size : ${showArticles.length}`)
   const onPageChange = (page) => {
     setCurrentPage(page)
   }
