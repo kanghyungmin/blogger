@@ -63,12 +63,9 @@ export default function About() {
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I'm hyungmin. I live in Seoul as a software engineer. Since I
-                was 20, I have liked coding a program. So, I have a lot of
-                experience and hope that I would be this field always as long as
-                possible.
+                Hello~~~ I'm hyungmin. I live in Seoul as a software engineer.
               </p>
-              <p>
+              {/* <p>
                 More than computer science, I love the mathmatics. Especially,
                 the bayesian probelm to reduce the uncertainty is very
                 attractive. Someday, I have a plan to study "Probablistic
@@ -80,7 +77,7 @@ export default function About() {
                 competency of the company and team members. Also, I think it is
                 very important to maintain how to develop these two points
                 continually.
-              </p>
+              </p>  */}
               <p></p>
             </div>
           </div>
